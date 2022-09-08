@@ -172,14 +172,14 @@ class Jobs extends Component {
     }
   }
 
-  searchKeyDown = e => {
-    if (e.key === 'Enter') {
+  searchKeyDown = event => {
+    if (event.key === 'Enter') {
       this.getJobDetails()
     }
   }
 
-  searchChange = e => {
-    this.setState({searchInput: e.target.value})
+  searchChange = event => {
+    this.setState({searchInput: event.target.value})
   }
 
   tryAgain = () => {
@@ -259,11 +259,11 @@ class Jobs extends Component {
     </div>
   )
 
-  checkboxEvent = e => {
-    if (e.target.checked) {
+  checkboxEvent = event => {
+    if (event.target.checked) {
       this.setState(
         prevState => ({
-          checkboxArray: [...prevState.checkboxArray, e.target.value],
+          checkboxArray: [...prevState.checkboxArray, event.target.value],
         }),
         this.getJobDetails,
       )
@@ -271,7 +271,7 @@ class Jobs extends Component {
       this.setState(
         prevState => ({
           checkboxArray: prevState.checkboxArray.filter(
-            eachValue => eachValue !== e.target.value,
+            eachValue => eachValue !== event.target.value,
           ),
         }),
         this.getJobDetails,
@@ -279,9 +279,9 @@ class Jobs extends Component {
     }
   }
 
-  radioEvent = e => {
-    if (e.target.checked) {
-      this.setState({radioValue: e.target.value}, this.getJobDetails)
+  radioEvent = event => {
+    if (event.target.checked) {
+      this.setState({radioValue: event.target.value}, this.getJobDetails)
     }
   }
 

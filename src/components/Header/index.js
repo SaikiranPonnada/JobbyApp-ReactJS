@@ -35,32 +35,40 @@ const Header = props => {
               Jobs
             </Link>
           </li>
+          <li className="header-item">
+            <button
+              type="submit"
+              className="header-logout-button"
+              onClick={removeAccess}
+            >
+              Logout
+            </button>
+          </li>
         </ul>
-        <button
-          type="submit"
-          className="header-logout-button"
-          onClick={removeAccess}
-        >
-          Logout
-        </button>
       </div>
-      <ul className="sm-container">
-        <li className="sm-list-item">
-          <Link to="/" className="l">
-            <MdHome className="icons" />
-          </Link>
-        </li>
-        <li className="sm-list-item">
-          <Link to="/jobs" className="l">
-            <MdWork className="icons" />
-          </Link>
-        </li>
-        <li className="sm-list-item">
-          <button type="submit" className="button-icon" onClick={removeAccess}>
-            <FiLogOut className="icons" />
-          </button>
-        </li>
-      </ul>
+      <div className="sm-container">
+        <ul className="sm-list">
+          <li className="sm-list-item">
+            <Link to="/">
+              <MdHome className="icons" />
+            </Link>
+          </li>
+          <li className="sm-list-item">
+            <Link to="/jobs">
+              <MdWork className="icons" />
+            </Link>
+          </li>
+          <li className="sm-list-item">
+            <button
+              type="submit"
+              className="button-icon"
+              onClick={removeAccess}
+            >
+              <FiLogOut className="icons" />
+            </button>
+          </li>
+        </ul>
+      </div>
     </nav>
   )
 }

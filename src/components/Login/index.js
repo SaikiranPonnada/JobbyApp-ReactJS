@@ -9,25 +9,25 @@ import './index.css'
 class Login extends Component {
   state = {
     errorMsg: '',
-    userName: '',
-    passWord: '',
+    username: '',
+    password: '',
     showError: false,
   }
 
-  userNameChange = e => {
-    this.setState({userName: e.target.value})
+  userNameChange = event => {
+    this.setState({username: event.target.value})
   }
 
-  passwordChange = e => {
-    this.setState({passWord: e.target.value})
+  passwordChange = event => {
+    this.setState({password: event.target.value})
   }
 
-  submitForm = async e => {
-    e.preventDefault()
-    const {userName, passWord} = this.state
+  submitForm = async event => {
+    event.preventDefault()
+    const {username, password} = this.state
     const bodyDetails = {
-      username: userName,
-      password: passWord,
+      username,
+      password,
     }
     const url = 'https://apis.ccbp.in/login'
     const options = {
@@ -48,7 +48,7 @@ class Login extends Component {
   }
 
   render() {
-    const {errorMsg, userName, passWord, showError} = this.state
+    const {errorMsg, username, password, showError} = this.state
     if (Cookies.get('jwt_token') !== undefined) {
       return <Redirect to="/" />
     }
@@ -61,26 +61,26 @@ class Login extends Component {
             alt="website logo"
           />
           <form className="login-form" onSubmit={this.submitForm}>
-            <label className="label" htmlFor="input1">
+            <label htmlFor="username" className="input-label">
               USERNAME
             </label>
             <input
               type="text"
               className="input-element"
-              id="input1"
+              id="username"
               placeholder="Username"
-              value={userName}
+              value={username}
               onChange={this.userNameChange}
             />
-            <label className="label" htmlFor="input2">
+            <label className="input-label" htmlFor="password">
               PASSWORD
             </label>
             <input
               type="password"
               className="input-element"
-              id="input2"
+              id="password"
               placeholder="Password"
-              value={passWord}
+              value={password}
               onChange={this.passwordChange}
             />
             <button type="submit" className="login-button">
